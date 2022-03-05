@@ -21,9 +21,9 @@ public class Garden {
             }
         }
     }
-    public void addPlant(int x, int y, Plant plant){
-        Garden.grid[x][y] = plant;
-    }
+    public void addPlant(int x, int y, Plant plant) {grid[x][y] = plant;}
+
 }
+
 
 

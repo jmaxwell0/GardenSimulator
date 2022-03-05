@@ -16,7 +16,8 @@ import java.util.List;
 import java.util.Objects;
 
 public class Controller {
-    Garden garden;
+
+    Garden garden = new Garden();
 
     @FXML
     public javafx.scene.layout.GridPane grid;

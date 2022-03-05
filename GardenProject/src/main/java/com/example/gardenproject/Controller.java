@@ -29,17 +29,15 @@ public class Controller {
     public Text daySinceWater;
     public Text infested;
 
-    public MenuItem treeItem;
-    public MenuItem flowerItem;
-    public MenuItem details;
-    public MenuItem remove;
-
-
-    Node getNodeByCoordinate(Integer row, Integer column) throws NullPointerException {
+    Node getNodeByCoordinate(Integer column, Integer row) throws NullPointerException {
         for (Node node : grid.getChildren()) {
+            System.out.println("x index = " + GridPane.getColumnIndex(node) );
+            System.out.println("y index = " + GridPane.getRowIndex(node) );
 
-            if (GridPane.getRowIndex(node) == null && GridPane.getColumnIndex(node) == null) {
+            if (GridPane.getRowIndex(node) == null){
                 GridPane.setRowIndex(node, 0);
+            }
+            if (GridPane.getColumnIndex(node) == null){
                 GridPane.setColumnIndex(node, 0);
             }
 
@@ -58,8 +56,11 @@ public class Controller {
         String id = mi.getId();
         int x = id.charAt(0) - '0';
         int y = id.charAt(1) - '0';
+        System.out.println(x);
+        System.out.println(y);
         Node node = getNodeByCoordinate(x, y);
 
+        System.out.println(node);
         garden.addPlant(x, y, new Tree(garden, x, y));
 
         List<StackPane> stackList = new ArrayList<>();
@@ -74,6 +75,7 @@ public class Controller {
         sp.getChildren().add(imgView);
         imgView.toBack();
 
+        System.out.println(sp.getChildren().get(1));
         MenuButton mb = (MenuButton) sp.getChildren().get(1);
         for (MenuItem child:mb.getItems()){
             String item = child.getUserData().toString();

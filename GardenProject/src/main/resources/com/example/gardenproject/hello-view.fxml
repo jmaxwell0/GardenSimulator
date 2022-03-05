@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="848.0" prefWidth="724.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gardenproject.Controller">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+      <children>
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Day:">
+            <font>
+               <Font size="26.0" />
+            </font>
+         </Text>
+         <Text fx:id="dayNumber" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+            <font>
+               <Font size="26.0" />
+            </font>
+         </Text>
+      </children>
+   </HBox>
+   <GridPane fx:id="grid" alignment="TOP_CENTER" gridLinesVisible="true" maxHeight="600.0" maxWidth="600.0" minHeight="600.0" minWidth="600.0" prefHeight="600.0" prefWidth="600.0">
+      <StackPane prefHeight="96.0" prefWidth="97.0">
+         <children>
+            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="107.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+              <items>
+                <MenuItem id="00" fx:id="treeItem" mnemonicParsing="false" onAction="#addTree" text="Add Tree" userData="treeItem" visible="true" />
+                <MenuItem id="00" fx:id="flowerItem" mnemonicParsing="false" text="Add Flower" userData="flowerItem" visible="true" />
+                <MenuItem id="00" fx:id="details" mnemonicParsing="false" text="View Details" userData="details" visible="false" />
+                <MenuItem id="00" fx:id="remove" mnemonicParsing="false" text="Remove" userData="remove" visible="false" />
+              </items>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </MenuButton>
+         </children>
+      </StackPane>
+
+       <columnConstraints>
+       <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+       <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+     </columnConstraints>
+     <rowConstraints>
+         <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+       <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+       <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+       <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+     </rowConstraints>
+   </GridPane>
+   <GridPane prefHeight="113.0" prefWidth="203.0" vgap="10.0">
+     <columnConstraints>
+       <ColumnConstraints hgrow="SOMETIMES" maxWidth="136.272705078125" minWidth="10.0" prefWidth="136.272705078125" />
+       <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.28787231445312" minWidth="10.0" prefWidth="66.727294921875" />
+     </columnConstraints>
+     <rowConstraints>
+       <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+       <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+     </rowConstraints>
+      <children>
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Plant type:" />
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Health Status:" GridPane.rowIndex="1" />
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Days since water:" GridPane.rowIndex="2" />
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Infested:" GridPane.rowIndex="3" />
+         <Text fx:id="plantType" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" />
+         <Text fx:id="healthStatus" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         <Text fx:id="daySinceWater" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <Text fx:id="infested" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      </children>
+   </GridPane>
+</VBox>

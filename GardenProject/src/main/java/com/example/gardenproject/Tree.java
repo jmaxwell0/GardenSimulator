@@ -1,7 +1,7 @@
 package com.example.gardenproject;
 
 public class Tree extends Plant{
-    String plantType = "Tree";
+    String itemName = "Tree";
     String healthStatus = "Healthy";
     int daySinceWater = 0;
     boolean infested = false;
@@ -11,14 +11,8 @@ public class Tree extends Plant{
         super(garden, x, y);
     }
 
-    public String getPlantType() {
-        return this.plantType;
+    public String getItemName() {
+        return this.itemName;
     }
-
-    @Override
-    public String getWateringType() {
-        return null;
-    }
-
 
 }

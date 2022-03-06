@@ -1,7 +1,7 @@
 package com.example.gardenproject;
 
 public abstract class Plant extends Item {
-    String plantType;
+    String itemName;
     String healthStatus = "Healthy";
     int daySinceWater = 0;
     boolean infested = false;
@@ -9,8 +9,6 @@ public abstract class Plant extends Item {
     Plant(Garden garden, int x, int y) {
         super(garden, x, y);
     }
-
-    public abstract String getPlantType();
 
     public String getHealthStatus() {
         return this.healthStatus;

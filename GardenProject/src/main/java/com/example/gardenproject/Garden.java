@@ -19,11 +19,12 @@ public class Garden {
             }
         }
     }
-    public void addPlant(int x, int y, Plant plant) {grid[x][y] = plant;}
+
+    public void addItem(int x, int y, Item item) {grid[x][y] = item;}
 
     public static String plantType(int x, int y){
-        System.out.println(grid[x][y].getPlantType());
-        return grid[x][y].getPlantType();
+        System.out.println(grid[x][y].getItemName());
+        return grid[x][y].getItemName();
     }
 
     public static String healthStatus(int x, int y){
@@ -37,6 +38,7 @@ public class Garden {
     public static boolean infested(int x, int y){
         return grid[x][y].getInfested();
     }
+
 
 }
 

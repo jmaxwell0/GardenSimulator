@@ -18,6 +18,7 @@ import java.util.Objects;
 
 public class Controller {
 
+    public Text description;
     Garden garden = new Garden();
 
     @FXML
@@ -30,7 +31,7 @@ public class Controller {
     public Text daySinceWater;
     public Text infested;
 
-    Node getNodeByCoordinate(Integer column, Integer row) throws NullPointerException {
+    Node getNodeByCoordinate(Integer row, Integer column) throws NullPointerException {
         for (Node node : grid.getChildren()) {
 
             if (GridPane.getRowIndex(node) == null){
@@ -48,20 +49,7 @@ public class Controller {
             return null;
     }
 
-    @FXML
-    protected void addTree(final ActionEvent event) throws NullPointerException, FileNotFoundException {
-        MenuItem mi = (MenuItem) event.getSource();
-        String id = mi.getId();
-        int x = id.charAt(0) - '0';
-        int y = id.charAt(1) - '0';
-
-        Node node = getNodeByCoordinate(x, y);
-
-        garden.addPlant(x, y, new Tree(garden, x, y));
-
-        StackPane sp = (StackPane) node;
-        FileInputStream input = new FileInputStream("files/tree.png");
-
+    public void addImage(StackPane sp, FileInputStream input){
         Image img = new Image(input);
         ImageView imgView = new ImageView(img);
         imgView.setFitHeight(100);
@@ -73,13 +61,35 @@ public class Controller {
         MenuButton mb = (MenuButton) sp.getChildren().get(1);
         for (MenuItem child:mb.getItems()){
             String item = child.getUserData().toString();
-            if(Objects.equals(item, "treeItem") | Objects.equals(item, "flowerItem")){
+            if (Objects.equals(item, "treeItem") | Objects.equals(item, "flowerItem")
+                    | Objects.equals(item, "pestControlItem") | Objects.equals(item, "sprinklerItem")
+                    | Objects.equals(item, "irrigationItem") ) {
                 child.setVisible(false);
             }
             else if(Objects.equals(item, "details") | Objects.equals(item, "remove")){
                 child.setVisible(true);
             }
         }
+
+    }
+
+    @FXML
+    public void addTree(final ActionEvent event) throws NullPointerException, FileNotFoundException {
+        MenuItem mi = (MenuItem) event.getSource();
+        String id = mi.getId();
+        int x = id.charAt(0) - '0';
+        int y = id.charAt(1) - '0';
+
+        Node node = getNodeByCoordinate(x, y);
+
+        garden.addItem(x, y, new Tree(garden, x, y));
+
+        StackPane sp = (StackPane) node;
+        FileInputStream input = new FileInputStream("files/tree.png");
+
+        addImage(sp, input);
+
+        description.setText("The tree needs to be watered by an irrigation system. Place one within a one tile range of an irrigation system to ensure that the tree does not dehydrate.");
     }
 
 
@@ -92,29 +102,15 @@ public class Controller {
 
         Node node = getNodeByCoordinate(x, y);
 
-        garden.addPlant(x, y, new Flower(garden, x, y));
+        garden.addItem(x, y, new Flower(garden, x, y));
 
         StackPane sp = (StackPane) node;
         FileInputStream input = new FileInputStream("files/flower.png");
 
-        Image img = new Image(input);
-        ImageView imgView = new ImageView(img);
-        imgView.setFitHeight(100);
-        imgView.setFitWidth(100);
+        addImage(sp, input);
 
-        sp.getChildren().add(imgView);
-        imgView.toBack();
+        description.setText("The flower needs to be watered by a sprinkler. Place one within a one tile range of a sprinkler to ensure that the flower does not dehydrate.");
 
-        MenuButton mb = (MenuButton) sp.getChildren().get(1);
-        for (MenuItem child:mb.getItems()){
-            String item = child.getUserData().toString();
-            if(Objects.equals(item, "treeItem") | Objects.equals(item, "flowerItem")){
-                child.setVisible(false);
-            }
-            else if(Objects.equals(item, "details") | Objects.equals(item, "remove")){
-                child.setVisible(true);
-            }
-        }
     }
 
     @FXML
@@ -126,7 +122,7 @@ public class Controller {
 
         Node node = getNodeByCoordinate(x, y);
 
-        garden.addPlant(x, y, null);
+        garden.addItem(x, y, null);
 
 
         StackPane sp = (StackPane) node;
@@ -136,7 +132,9 @@ public class Controller {
 
         for (MenuItem child:mb.getItems()) {
             String item = child.getUserData().toString();
-            if (Objects.equals(item, "treeItem") | Objects.equals(item, "flowerItem")) {
+            if (Objects.equals(item, "treeItem") | Objects.equals(item, "flowerItem")
+                    | Objects.equals(item, "pestControlItem") | Objects.equals(item, "sprinklerItem")
+                    | Objects.equals(item, "irrigationItem") ) {
                 child.setVisible(true);
             } else if (Objects.equals(item, "details") | Objects.equals(item, "remove")) {
                 child.setVisible(false);
@@ -147,9 +145,11 @@ public class Controller {
         daySinceWater.setText("");
         infested.setText("");
 
-
+        for(Item[] item:Garden.grid) {
+                System.out.println(Arrays.toString(item));
+            }
+        description.setText("Item removed");
     }
-
 
 
     @FXML
@@ -161,6 +161,7 @@ public class Controller {
 
         Node node = getNodeByCoordinate(x, y);
 
+      //  System.out.println("node:"  +node);
         plantType.setText(Garden.plantType(x, y));
         healthStatus.setText(Garden.healthStatus(x, y));
         daySinceWater.setText(String.valueOf(Garden.daySinceWater(x, y)));
@@ -169,10 +170,68 @@ public class Controller {
     }
 
 
+    public void addSprinkler(ActionEvent event) throws FileNotFoundException {
+        MenuItem mi = (MenuItem) event.getSource();
+        String id = mi.getId();
+        int x = id.charAt(0) - '0';
+        int y = id.charAt(1) - '0';
+
+        Node node = getNodeByCoordinate(x, y);
+
+
+        garden.addItem(x, y, new Sprinkler(garden, x, y));
+
+        StackPane sp = (StackPane) node;
+        FileInputStream input = new FileInputStream("files/sprinkler.png");
+
+        addImage(sp, input);
+        description.setText("The sprinkler waters all flowers within a one tile range. It does not water trees, use an irrigation system to water trees.");
+
+    }
+
+    public void addIrrigation(ActionEvent event) throws FileNotFoundException {
+        MenuItem mi = (MenuItem) event.getSource();
+        String id = mi.getId();
+        int x = id.charAt(0) - '0';
+        int y = id.charAt(1) - '0';
+
+        Node node = getNodeByCoordinate(x, y);
+
+
+        garden.addItem(x, y, new Irrigation(garden, x, y));
+
+        StackPane sp = (StackPane) node;
+        FileInputStream input = new FileInputStream("files/pipes.png");
+
+        addImage(sp, input);
+        description.setText("The irrigation system waters all trees within a one tile range. It does not water flowers, use an sprinkler to water flowers.");
+    }
+
+    public void addPestControl(ActionEvent event) throws FileNotFoundException {
+        MenuItem mi = (MenuItem) event.getSource();
+        String id = mi.getId();
+        int x = id.charAt(0) - '0';
+        int y = id.charAt(1) - '0';
+
+        Node node = getNodeByCoordinate(x, y);
+
+        garden.addItem(x, y, new PestControl(garden, x, y));
+
+        StackPane sp = (StackPane) node;
+        FileInputStream input = new FileInputStream("files/pestcontrol.png");
+
+        addImage(sp, input);
+
+        description.setText("The pest control system detects any infestations across the entire garden. Only one is needed to provide protection.");
+
+    }
+
 
     protected void updateDay() {
         int dayN = Integer.parseInt(dayNumber.toString());
         dayNumber.setText(String.valueOf(dayN + 1));
     }
+
+
 }
 

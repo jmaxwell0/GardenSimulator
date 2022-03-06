@@ -28,4 +28,9 @@ public class PestControl extends Item{
         return false;
     }
 
+    @Override
+    public void checkWatering(Item item) {
+
+    }
+
 }

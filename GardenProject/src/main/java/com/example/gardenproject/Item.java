@@ -4,10 +4,10 @@ public abstract class Item {
     Garden garden;
     int x;
     int y;
-    String itemName;
-    String healthStatus;
-    int daysSinceWater;
-    boolean infested;
+    private String itemName;
+    private String healthStatus;
+    private int daysSinceWater;
+    private boolean infested;
 
     Item(Garden garden, int x, int y) {
         this.garden = garden;
@@ -19,6 +19,11 @@ public abstract class Item {
     public abstract String getHealthStatus();
     public abstract int getDaysSinceWater();
     public abstract boolean getInfested();
+
+    public static void checkWatering() {
+    }
+
+    public abstract void checkWatering(Item item);
 }
 
 

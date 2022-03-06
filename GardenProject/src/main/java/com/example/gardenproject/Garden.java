@@ -1,5 +1,6 @@
 package com.example.gardenproject;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class Garden {
@@ -12,7 +13,7 @@ public class Garden {
 
     public Garden(){grid = new Item[size][size];}
 
-    public void worldCreation() {
+    public static void worldCreation() {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 grid[i][j] = null;
@@ -20,10 +21,30 @@ public class Garden {
         }
     }
 
+
+    public boolean checkSurroundings(Item item, String plantType, Class watering){
+        int x = item.x;
+        int y = item.y;
+
+        if((grid[x+1][y].getClass() == watering)
+            | (grid[x+1][y+1].getClass() == watering)
+            | (grid[x+1][y-1].getClass() == watering)
+            | (grid[x][y+1].getClass() == watering)
+            | (grid[x-1][y+1].getClass() == watering)
+            | (grid[x-1][y].getClass() == watering)
+            | (grid[x][y-1].getClass() == watering)
+            | (grid[x-1][y-1].getClass() == watering)){
+            return true;
+    } else {
+            return false;
+        }
+}
+
+
+
     public void addItem(int x, int y, Item item) {grid[x][y] = item;}
 
-    public static String plantType(int x, int y){
-        System.out.println(grid[x][y].getItemName());
+    public static String ItemType(int x, int y){
         return grid[x][y].getItemName();
     }
 
@@ -38,6 +59,7 @@ public class Garden {
     public static boolean infested(int x, int y){
         return grid[x][y].getInfested();
     }
+
 
 
 }

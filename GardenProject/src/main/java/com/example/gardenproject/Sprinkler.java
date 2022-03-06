@@ -22,4 +22,8 @@ public class Sprinkler extends Watering{
     public boolean getInfested() {
         return false;
     }
+
+    @Override
+    public void checkWatering(Item item) {
+    }
 }

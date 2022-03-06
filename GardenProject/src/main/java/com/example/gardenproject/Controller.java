@@ -1,6 +1,9 @@
 package com.example.gardenproject;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
@@ -8,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -19,6 +23,7 @@ import java.util.Objects;
 public class Controller {
 
     public Text description;
+    public Button beginSimulation;
     Garden garden = new Garden();
 
     @FXML
@@ -89,7 +94,7 @@ public class Controller {
 
         addImage(sp, input);
 
-        description.setText("The tree needs to be watered by an irrigation system. Place one within a one tile range of an irrigation system to ensure that the tree does not dehydrate.");
+        description.setText("The tree needs to be watered by an irrigation system. Place a tree within a one tile range of an irrigation system to ensure that the tree does not dehydrate.");
     }
 
 
@@ -109,7 +114,7 @@ public class Controller {
 
         addImage(sp, input);
 
-        description.setText("The flower needs to be watered by a sprinkler. Place one within a one tile range of a sprinkler to ensure that the flower does not dehydrate.");
+        description.setText("The flower needs to be watered by a sprinkler. Place a flower within a one tile range of a sprinkler to ensure that the flower does not dehydrate.");
 
     }
 
@@ -162,11 +167,10 @@ public class Controller {
         Node node = getNodeByCoordinate(x, y);
 
       //  System.out.println("node:"  +node);
-        plantType.setText(Garden.plantType(x, y));
+        plantType.setText(Garden.ItemType(x, y));
         healthStatus.setText(Garden.healthStatus(x, y));
         daySinceWater.setText(String.valueOf(Garden.daySinceWater(x, y)));
         infested.setText(Boolean.toString(Garden.infested(x, y)));
-
     }
 
 
@@ -223,15 +227,42 @@ public class Controller {
         addImage(sp, input);
 
         description.setText("The pest control system detects any infestations across the entire garden. Only one is needed to provide protection.");
-
     }
 
 
     protected void updateDay() {
-        int dayN = Integer.parseInt(dayNumber.toString());
+        if (dayNumber!= null){
+        int dayN = Integer.parseInt(dayNumber.getText());
         dayNumber.setText(String.valueOf(dayN + 1));
     }
+    }
 
+    public void beginSimulation() {
+        beginSimulation.setVisible(false);
+        simulate();
+    }
 
+    public void simulate() {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<>() {
+            int i =  0;
+            @Override
+            public void handle(ActionEvent event) {
+                updateDay();
+
+                for (Item[] line:Garden.grid){
+                    for (Item item:line){
+                        item.checkWatering();
+
+                    }
+                }
+
+                i++;
+            }
+        }));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+        }
 }
+
+
 

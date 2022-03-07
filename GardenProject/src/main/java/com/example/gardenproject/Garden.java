@@ -60,8 +60,9 @@ public class Garden {
         return grid[x][y].getInfested();
     }
 
-
-
+    public static String getDescription(int x, int y) {
+        return grid[x][y].getDescription();
+    }
 }
 
 

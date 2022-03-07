@@ -2,11 +2,13 @@ package com.example.gardenproject;
 
 public class Sprinkler extends Watering{
 
-    String itemName = "Sprinkler";
+    static String description = "The sprinkler waters all flowers within a one tile range. It does not water trees, use an irrigation system to water trees.";
+    private String itemName = "Sprinkler";
 
     Sprinkler(Garden garden, int x, int y) {
         super(garden, x, y);
     }
+
 
     @Override
     public String getItemName() {
@@ -25,5 +27,9 @@ public class Sprinkler extends Watering{
 
     @Override
     public void checkWatering(Item item) {
+    }
+    @Override
+    public String getDescription(){
+        return description;
     }
 }

@@ -94,7 +94,7 @@ public class Controller {
 
         addImage(sp, input);
 
-        description.setText("The tree needs to be watered by an irrigation system. Place a tree within a one tile range of an irrigation system to ensure that the tree does not dehydrate.");
+        description.setText(Garden.getDescription(x, y));
     }
 
 
@@ -114,7 +114,7 @@ public class Controller {
 
         addImage(sp, input);
 
-        description.setText("The flower needs to be watered by a sprinkler. Place a flower within a one tile range of a sprinkler to ensure that the flower does not dehydrate.");
+        description.setText(Garden.getDescription(x, y));
 
     }
 
@@ -171,6 +171,8 @@ public class Controller {
         healthStatus.setText(Garden.healthStatus(x, y));
         daySinceWater.setText(String.valueOf(Garden.daySinceWater(x, y)));
         infested.setText(Boolean.toString(Garden.infested(x, y)));
+
+        description.setText(Garden.getDescription(x, y));
     }
 
 
@@ -189,7 +191,7 @@ public class Controller {
         FileInputStream input = new FileInputStream("files/sprinkler.png");
 
         addImage(sp, input);
-        description.setText("The sprinkler waters all flowers within a one tile range. It does not water trees, use an irrigation system to water trees.");
+        description.setText(Garden.getDescription(x, y));
 
     }
 
@@ -208,7 +210,7 @@ public class Controller {
         FileInputStream input = new FileInputStream("files/pipes.png");
 
         addImage(sp, input);
-        description.setText("The irrigation system waters all trees within a one tile range. It does not water flowers, use an sprinkler to water flowers.");
+        description.setText(Garden.getDescription(x, y));
     }
 
     public void addPestControl(ActionEvent event) throws FileNotFoundException {
@@ -226,7 +228,7 @@ public class Controller {
 
         addImage(sp, input);
 
-        description.setText("The pest control system detects any infestations across the entire garden. Only one is needed to provide protection.");
+        description.setText(Garden.getDescription(x, y));
     }
 
 

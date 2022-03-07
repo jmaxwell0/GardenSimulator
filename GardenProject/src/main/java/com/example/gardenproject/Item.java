@@ -8,6 +8,7 @@ public abstract class Item {
     private String healthStatus;
     private int daysSinceWater;
     private boolean infested;
+    private String description;
 
     Item(Garden garden, int x, int y) {
         this.garden = garden;
@@ -15,13 +16,13 @@ public abstract class Item {
         this.y = y;
     }
 
+    public abstract String getDescription();
     public abstract String getItemName();
     public abstract String getHealthStatus();
     public abstract int getDaysSinceWater();
     public abstract boolean getInfested();
 
-    public static void checkWatering() {
-    }
+    public abstract void checkWatering();
 
     public abstract void checkWatering(Item item);
 }

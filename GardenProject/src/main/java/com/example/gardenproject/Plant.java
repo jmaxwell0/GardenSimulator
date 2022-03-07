@@ -44,5 +44,9 @@ public abstract class Plant extends Item {
     }
 
     // check days since water to change color
+
+
     // check for pests
+
+
 }

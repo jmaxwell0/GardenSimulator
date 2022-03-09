@@ -8,6 +8,8 @@ public class Irrigation extends Watering{
         super(garden, x, y);
     }
 
+
+
     @Override
     public String getItemName() {
         return this.itemName;
@@ -24,7 +26,16 @@ public class Irrigation extends Watering{
     }
 
     @Override
-    public void checkWatering(Item item) {
+    public void checkWatering(){}
+
+    @Override
+    public void addDaysSinceWater() {
+
+    }
+
+    @Override
+    public int getWaterDeathDays() {
+        return 0;
     }
 
     @Override

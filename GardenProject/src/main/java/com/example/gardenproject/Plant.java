@@ -4,7 +4,9 @@ public abstract class Plant extends Item {
     String itemName;
     String healthStatus = "Healthy";
     private int daysSinceWater = 0;
-    boolean infested = false;
+    boolean infested;
+    Class waterClass;
+
 
     Plant(Garden garden, int x, int y) {
         super(garden, x, y);
@@ -16,10 +18,6 @@ public abstract class Plant extends Item {
 
     public int getDaysSinceWater() {
         return this.daysSinceWater;
-    }
-
-    public boolean getInfested() {
-        return infested;
     }
 
     public void setHealthStatus(String s){
@@ -34,11 +32,12 @@ public abstract class Plant extends Item {
         this.daysSinceWater++;
     }
 
-    @Override
-    public void checkWatering(Item item){
-        if (garden.checkSurroundings(item, "Tree", Irrigation.class)){
+    public abstract Class getWaterClass();
+
+    public void checkWatering(){
+        if (garden.checkSurroundings(this, Irrigation.class) && (this.getWaterClass() == Irrigation.class)){
             this.resetDaysSinceWater();
-        } else if (garden.checkSurroundings(item, "Flower", Sprinkler.class)){
+        } else if (garden.checkSurroundings(this, Sprinkler.class) && (this.getWaterClass() == Sprinkler.class)){
             this.resetDaysSinceWater();
         }else{this.addDaysSinceWater();}
     }

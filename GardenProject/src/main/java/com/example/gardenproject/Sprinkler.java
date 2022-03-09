@@ -9,6 +9,16 @@ public class Sprinkler extends Watering{
         super(garden, x, y);
     }
 
+    @Override
+    public void checkWatering() {}
+
+    @Override
+    public void addDaysSinceWater() {}
+
+    @Override
+    public int getWaterDeathDays() {
+        return 0;
+    }
 
     @Override
     public String getItemName() {
@@ -25,9 +35,6 @@ public class Sprinkler extends Watering{
         return false;
     }
 
-    @Override
-    public void checkWatering(Item item) {
-    }
     @Override
     public String getDescription(){
         return description;

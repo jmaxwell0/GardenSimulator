@@ -32,8 +32,18 @@ public class PestControl extends Item{
         return false;
     }
 
+
+   @Override
+    public void checkWatering() {}
+
     @Override
-    public void checkWatering(Item item) {
+    public void addDaysSinceWater() {
+
+    }
+
+    @Override
+    public int getWaterDeathDays() {
+        return 0;
     }
 
 }

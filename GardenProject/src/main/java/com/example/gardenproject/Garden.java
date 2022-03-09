@@ -21,23 +21,40 @@ public class Garden {
         }
     }
 
+    public Class checkClass(int x,  int y) {
+        if (validCell(x, y) && grid[x][y] != null) {
+            return (grid[x][y].getClass());
+        }
+        return null;
+    }
+    public boolean validCell(int x, int y) {
+        return x >= 0 && x < 6 && y >= 0 && y < 6;
+    }
 
-    public boolean checkSurroundings(Item item, String plantType, Class watering){
+    public boolean checkSurroundings(Item item, Class watering){
         int x = item.x;
         int y = item.y;
 
-        if((grid[x+1][y].getClass() == watering)
-            | (grid[x+1][y+1].getClass() == watering)
-            | (grid[x+1][y-1].getClass() == watering)
-            | (grid[x][y+1].getClass() == watering)
-            | (grid[x-1][y+1].getClass() == watering)
-            | (grid[x-1][y].getClass() == watering)
-            | (grid[x][y-1].getClass() == watering)
-            | (grid[x-1][y-1].getClass() == watering)){
-            return true;
-    } else {
-            return false;
-        }
+
+        return (checkClass(x + 1, y) == watering)
+                | (checkClass(x + 1, y + 1) == watering)
+                | (checkClass(x, y +1) == watering)
+                | (checkClass(x + 1,y - 1) == watering)
+                | (checkClass(x,y - 1) == watering)
+                | (checkClass(x - 1, y - 1) == watering)
+                | (checkClass(x - 1, y) == watering)
+                | (checkClass(x - 1,y + 1) == watering);
+    }
+    public boolean checkPestControl(){
+        for (Item[] line : Garden.grid) {
+            for (Item item : line) {
+                if(item != null) {
+                    if (item.getClass() == PestControl.class)
+                        return true;
+                }
+            }
+    }
+    return false;
 }
 
 

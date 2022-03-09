@@ -12,5 +12,5 @@ public abstract class Watering extends Item {
         return this.healthStatus;
     }
 
-
+    public abstract void checkWatering();
 }

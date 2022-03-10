@@ -50,7 +50,6 @@ public class Controller {
             if (Objects.equals(GridPane.getRowIndex(node), row) && Objects.equals(GridPane.getColumnIndex(node), column)) {
                 return node;
             }
-
         }
         return null;
     }
@@ -94,6 +93,7 @@ public class Controller {
         addImage(sp, input);
 
         description.setText(Garden.getDescription(x, y));
+        node.setStyle("-fx-background-color:#FFFFFF");
     }
 
     @FXML
@@ -113,8 +113,8 @@ public class Controller {
         addImage(sp, input);
 
         description.setText(Garden.getDescription(x, y));
+        node.setStyle("-fx-background-color:#FFFFFF");
     }
-
 
     @FXML
     public void addHydrangea(ActionEvent event) throws FileNotFoundException {
@@ -133,8 +133,10 @@ public class Controller {
         addImage(sp, input);
 
         description.setText(Garden.getDescription(x, y));
+        node.setStyle("-fx-background-color:#FFFFFF");
 
     }
+
     @FXML
     public void addRose(ActionEvent event) throws FileNotFoundException {
         MenuItem mi = (MenuItem) event.getSource();
@@ -152,8 +154,10 @@ public class Controller {
         addImage(sp, input);
 
         description.setText(Garden.getDescription(x, y));
+        node.setStyle("-fx-background-color:#FFFFFF");
 
     }
+
     @FXML
     public void addDaisy(ActionEvent event) throws FileNotFoundException {
         MenuItem mi = (MenuItem) event.getSource();
@@ -171,6 +175,7 @@ public class Controller {
         addImage(sp, input);
 
         description.setText(Garden.getDescription(x, y));
+        node.setStyle("-fx-background-color:#FFFFFF");
 
     }
 
@@ -210,7 +215,7 @@ public class Controller {
 
         description.setText("Item removed");
 
-        for (Item[] line:Garden.grid){
+        for (Item[] line : Garden.grid) {
             System.out.println(Arrays.toString(line));
         }
     }
@@ -223,7 +228,6 @@ public class Controller {
         int x = id.charAt(0) - '0';
         int y = id.charAt(1) - '0';
 
-        Node node = getNodeByCoordinate(x, y);
 
         plantType.setText(Garden.ItemType(x, y));
         healthStatus.setText(Garden.healthStatus(x, y));
@@ -231,6 +235,7 @@ public class Controller {
         infested.setText(Boolean.toString(Garden.infested(x, y)));
 
         description.setText(Garden.getDescription(x, y));
+
     }
 
     public void addSprinkler(ActionEvent event) throws FileNotFoundException {
@@ -248,6 +253,7 @@ public class Controller {
 
         addImage(sp, input);
         description.setText(Garden.getDescription(x, y));
+        node.setStyle("-fx-background-color:#FFFFFF");
     }
 
     public void addIrrigation(ActionEvent event) throws FileNotFoundException {
@@ -265,6 +271,7 @@ public class Controller {
 
         addImage(sp, input);
         description.setText(Garden.getDescription(x, y));
+        node.setStyle("-fx-background-color:#FFFFFF");
     }
 
     public void addPestControl(ActionEvent event) throws FileNotFoundException {
@@ -283,6 +290,7 @@ public class Controller {
         addImage(sp, input);
 
         description.setText(Garden.getDescription(x, y));
+        node.setStyle("-fx-background-color:#FFFFFF");
     }
 
 
@@ -296,7 +304,6 @@ public class Controller {
     public void beginSimulation() throws FileNotFoundException, InterruptedException {
         beginSimulation.setVisible(false);
         simulate();
-        pests();
     }
 
     public void water(Item item) {
@@ -350,7 +357,7 @@ public class Controller {
         StackPane sp = (StackPane) node;
 
         // if item is infested for 10 days without pest control, it dies
-        if(item.getDaysInfested() > 10){
+        if (item.getDaysInfested() > 10) {
             garden.addItem(x, y, null);
 
             MenuButton mb = (MenuButton) sp.getChildren().get(1);
@@ -379,8 +386,7 @@ public class Controller {
             description.setText(item.getItemName() + " died due to infestation");
 
 
-
-        }else{
+        } else {
             if (garden.checkPestControl() && item.getInfested() && !item.getGassed()) {
                 description.setFill(Color.GREEN);
                 description.setText("Pesticide deployed!");
@@ -407,12 +413,12 @@ public class Controller {
                 imgView.toFront();
             }
         }
-        if(Garden.grid[x][y] != null && Garden.grid[x][y].getGassed()){
+        if (Garden.grid[x][y] != null && Garden.grid[x][y].getGassed()) {
             item.addGassedDays();
             // if gassed for 3 days, stop gassing
-            if(item.getGassedDays()>= 3){
+            if (item.getGassedDays() >= 3) {
                 item.setGassed(false);
-                for(int i=2; i<=sp.getChildren().size(); i++){
+                for (int i = 2; i <= sp.getChildren().size(); i++) {
                     sp.getChildren().remove(2);
                 }
                 description.setFill(Color.GREEN);
@@ -433,23 +439,33 @@ public class Controller {
             @Override
             public void handle(ActionEvent event) {
                 updateDay();
-
+                Random randomNum = new Random();
+                int r = randomNum.nextInt(15)+15;
+                System.out.println(r);
+                if (r == 15) {
+                    try {
+                        System.out.println("pests reached");
+                        pests();
+                    } catch (FileNotFoundException | InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
                 for (Item[] line : Garden.grid) {
                     for (Item item : line) {
                         if (item != null) {
                             if (item.getClass().getSuperclass() == Tree.class | item.getClass().getSuperclass() == Flower.class) {
                                 water(item);
-                                if(item.getInfested()){
+                                if (item.getInfested()) {
                                     item.addDaysInfested();
                                 }
                                 pestControl(item);
 
 
-                                }
-
                             }
+
                         }
                     }
+                }
                 i++;
             }
         }));
@@ -460,7 +476,79 @@ public class Controller {
     // find a way to have pests run in background on separate thread while able to update the ui,
     // while loop doesnt work, Timeline can't have time in between runs change...
 
-  /*  public void pests() {
+
+    public void pests() throws FileNotFoundException, InterruptedException {
+        System.out.println("pests inner reahced");
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1), new EventHandler<>() {
+            int i = 0;
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("pests handle reach");
+                Random randomNum = new Random();
+                ArrayList<int[]> arrayOfPlants = new ArrayList<>();
+                for (Item[] line : Garden.grid) {
+                    for (Item item : line) {
+                        if (item != null) {
+                            if (item.getClass().getSuperclass() == Tree.class | item.getClass().getSuperclass() == Flower.class) {
+                                int[] plantXY = {item.x, item.y};
+                                arrayOfPlants.add(plantXY);
+                            }
+                        }
+                    }
+                }
+
+                int randNumPests = randomNum.nextInt(5 - 2) + 2;
+                Integer[] numPestRounds = {randNumPests, arrayOfPlants.size()};
+                int minRounds = Collections.min(Arrays.asList(numPestRounds));
+
+                description.setFill(Color.RED);
+                description.setText(minRounds + " pests are attacking your garden!!!");
+                description.setFill(Color.BLACK);
+
+                Collections.shuffle(arrayOfPlants);
+                for (int i = 0; i < minRounds; i++) {
+
+                    int x = arrayOfPlants.get(i)[0];
+                    int y = arrayOfPlants.get(i)[1];
+
+                    Node node = getNodeByCoordinate(x, y);
+
+
+                    Garden.grid[x][y].setInfested(true);
+                    Garden.grid[x][y].setHealthStatus("Infested for " + Garden.grid[x][y].getDaysInfested() + " days");
+
+                    StackPane sp = (StackPane) node;
+
+                    FileInputStream input = null;
+                    try {
+                        input = new FileInputStream("files/pests.png");
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+
+                    assert input != null;
+
+                    Image img = new Image(input);
+                    ImageView imgView = new ImageView(img);
+                    imgView.setFitHeight(100);
+                    imgView.setFitWidth(100);
+
+                    sp.getChildren().add(imgView);
+                    imgView.toFront();
+                }
+                arrayOfPlants.clear();
+
+                i++;
+            }
+        }));
+        timeline.setCycleCount(1);
+        timeline.play();
+    }
+}
+
+
+
+ /*  public void pests() {
         Thread thread = new Thread() {
             public void run() {
                 Random randomNum = new Random();
@@ -503,80 +591,6 @@ public class Controller {
         thread.start();
     }*/
 
-
-    public void pests() throws FileNotFoundException, InterruptedException {
-
-        Random randomNum = new Random();
-        int randTime = randomNum.nextInt(30 - 15) + 15;
-
-        ArrayList<int[]> arrayOfPlants = new ArrayList<>();
-
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(randTime), new EventHandler<>(){
-            int i =  0;
-
-            @Override
-            public void handle(ActionEvent event) {
-                for (Item[] line:Garden.grid){
-                    for (Item item:line){
-                        if (item != null){
-                            if (item.getClass().getSuperclass() == Tree.class | item.getClass().getSuperclass() == Flower.class) {
-                                int[] plantXY = {item.x, item.y};
-                                arrayOfPlants.add(plantXY);
-                            }
-                        }
-                    }
-                }
-
-                int randNumPests = randomNum.nextInt(5 - 2) + 2;
-                Integer[] numPestRounds = {randNumPests, arrayOfPlants.size()};
-                int minRounds = Collections.min(Arrays.asList(numPestRounds));
-
-                description.setFill(Color.RED);
-                description.setText(minRounds + " pests are attacking your garden!!!");
-                description.setFill(Color.BLACK);
-
-                Collections.shuffle(arrayOfPlants);
-                for(int i=0; i<minRounds; i++){
-
-                    int x = arrayOfPlants.get(i)[0];
-                    int y = arrayOfPlants.get(i)[1];
-
-                    Node node = getNodeByCoordinate(x, y);
-
-
-                    Garden.grid[x][y].setInfested(true);
-                    Garden.grid[x][y].setHealthStatus("Infested for " + Garden.grid[x][y].getDaysInfested() + " days");
-
-                    StackPane sp = (StackPane) node;
-
-                    FileInputStream input = null;
-                    try {
-                        input = new FileInputStream("files/pests.png");
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    }
-
-                    assert input != null;
-
-                    Image img = new Image(input);
-                    ImageView imgView = new ImageView(img);
-                    imgView.setFitHeight(100);
-                    imgView.setFitWidth(100);
-
-                    sp.getChildren().add(imgView);
-                    imgView.toFront();
-                }
-                arrayOfPlants.clear();
-
-                i++;
-            }
-        }));
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.play();
-    }
-
-
-}
 
 
 

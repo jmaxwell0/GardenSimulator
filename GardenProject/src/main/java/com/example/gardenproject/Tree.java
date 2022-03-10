@@ -9,7 +9,7 @@ public class Tree extends Plant{
 
     @Override
     public String getDescription() {
-        String description = "The tree needs to be watered by an irrigation system. Place a tree within a one tile range of an irrigation system to ensure that the tree does not dehydrate.";
+        String description = "Trees need to be watered by an irrigation system. Place trees within a one tile range of an irrigation system to ensure that the trees do not dehydrate.";
         return description;
     }
 
@@ -28,4 +28,18 @@ public class Tree extends Plant{
         int waterDeathDays = 21;
         return waterDeathDays;}
 
+}
+
+class OrangeTree extends Tree{
+
+    OrangeTree(Garden garden, int x, int y) {
+        super(garden, x, y);
+    }
+}
+
+class PlumTree extends Tree{
+
+    PlumTree(Garden garden, int x, int y) {
+        super(garden, x, y);
+    }
 }

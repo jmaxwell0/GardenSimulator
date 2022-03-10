@@ -13,7 +13,7 @@ public class Flower extends Plant {
 
     @Override
     public String getDescription() {
-        return "The flower needs to be watered by a sprinkler. Place a flower within a one tile range of a sprinkler to ensure that the flower does not dehydrate.";
+        return "Flowers needs to be watered by a sprinkler. Place flowers within a one tile range of a sprinkler to ensure that the flowers do not dehydrate.";
     }
 
     public String getItemName() {
@@ -27,7 +27,25 @@ public class Flower extends Plant {
     @Override
     public int getWaterDeathDays(){
         return 7;}
+}
 
+class Daisy extends Flower{
 
+    public Daisy(Garden garden, int x, int y) {
+        super(garden, x, y);
+    }
+}
 
+class Rose extends Flower{
+
+    public Rose(Garden garden, int x, int y) {
+        super(garden, x, y);
+    }
+}
+
+class Hydrangea extends Flower{
+
+    public Hydrangea(Garden garden, int x, int y) {
+        super(garden, x, y);
+    }
 }

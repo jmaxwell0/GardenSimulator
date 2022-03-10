@@ -11,12 +11,14 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.*;
+
 
 public class Controller {
 
@@ -76,7 +78,7 @@ public class Controller {
     }
 
     @FXML
-    public void addTree(final ActionEvent event) throws NullPointerException, FileNotFoundException {
+    public void addOrangeTree(final ActionEvent event) throws NullPointerException, FileNotFoundException {
         MenuItem mi = (MenuItem) event.getSource();
         String id = mi.getId();
         int x = id.charAt(0) - '0';
@@ -84,10 +86,29 @@ public class Controller {
 
         Node node = getNodeByCoordinate(x, y);
 
-        garden.addItem(x, y, new Tree(garden, x, y));
+        garden.addItem(x, y, new OrangeTree(garden, x, y));
 
         StackPane sp = (StackPane) node;
-        FileInputStream input = new FileInputStream("files/tree.png");
+        FileInputStream input = new FileInputStream("files/orangetree.png");
+
+        addImage(sp, input);
+
+        description.setText(Garden.getDescription(x, y));
+    }
+
+    @FXML
+    public void addPlumTree(final ActionEvent event) throws NullPointerException, FileNotFoundException {
+        MenuItem mi = (MenuItem) event.getSource();
+        String id = mi.getId();
+        int x = id.charAt(0) - '0';
+        int y = id.charAt(1) - '0';
+
+        Node node = getNodeByCoordinate(x, y);
+
+        garden.addItem(x, y, new PlumTree(garden, x, y));
+
+        StackPane sp = (StackPane) node;
+        FileInputStream input = new FileInputStream("files/plumtree.png");
 
         addImage(sp, input);
 
@@ -96,7 +117,7 @@ public class Controller {
 
 
     @FXML
-    public void addFlower(ActionEvent event) throws FileNotFoundException {
+    public void addHydrangea(ActionEvent event) throws FileNotFoundException {
         MenuItem mi = (MenuItem) event.getSource();
         String id = mi.getId();
         int x = id.charAt(0) - '0';
@@ -104,10 +125,48 @@ public class Controller {
 
         Node node = getNodeByCoordinate(x, y);
 
-        garden.addItem(x, y, new Flower(garden, x, y));
+        garden.addItem(x, y, new Hydrangea(garden, x, y));
 
         StackPane sp = (StackPane) node;
-        FileInputStream input = new FileInputStream("files/flower.png");
+        FileInputStream input = new FileInputStream("files/hydrangea.png");
+
+        addImage(sp, input);
+
+        description.setText(Garden.getDescription(x, y));
+
+    }
+    @FXML
+    public void addRose(ActionEvent event) throws FileNotFoundException {
+        MenuItem mi = (MenuItem) event.getSource();
+        String id = mi.getId();
+        int x = id.charAt(0) - '0';
+        int y = id.charAt(1) - '0';
+
+        Node node = getNodeByCoordinate(x, y);
+
+        garden.addItem(x, y, new Rose(garden, x, y));
+
+        StackPane sp = (StackPane) node;
+        FileInputStream input = new FileInputStream("files/rose.png");
+
+        addImage(sp, input);
+
+        description.setText(Garden.getDescription(x, y));
+
+    }
+    @FXML
+    public void addDaisy(ActionEvent event) throws FileNotFoundException {
+        MenuItem mi = (MenuItem) event.getSource();
+        String id = mi.getId();
+        int x = id.charAt(0) - '0';
+        int y = id.charAt(1) - '0';
+
+        Node node = getNodeByCoordinate(x, y);
+
+        garden.addItem(x, y, new Daisy(garden, x, y));
+
+        StackPane sp = (StackPane) node;
+        FileInputStream input = new FileInputStream("files/daisy.png");
 
         addImage(sp, input);
 
@@ -148,8 +207,12 @@ public class Controller {
         infested.setText("");
 
         node.setStyle("-fx-background-color:#FFFFFF");
-        
+
         description.setText("Item removed");
+
+        for (Item[] line:Garden.grid){
+            System.out.println(Arrays.toString(line));
+        }
     }
 
 
@@ -289,9 +352,12 @@ public class Controller {
         // if item is infested for 10 days without pest control, it dies
         if(item.getDaysInfested() > 10){
             garden.addItem(x, y, null);
+
+            MenuButton mb = (MenuButton) sp.getChildren().get(1);
+
             sp.getChildren().remove(2);
             sp.getChildren().remove(0);
-            MenuButton mb = (MenuButton) sp.getChildren().get(0);
+
 
             for (MenuItem child : mb.getItems()) {
                 String mitem = child.getUserData().toString();
@@ -312,8 +378,13 @@ public class Controller {
 
             description.setText(item.getItemName() + " died due to infestation");
 
+
+
         }else{
             if (garden.checkPestControl() && item.getInfested() && !item.getGassed()) {
+                description.setFill(Color.GREEN);
+                description.setText("Pesticide deployed!");
+                description.setFill(Color.BLACK);
                 Garden.grid[x][y].setGassed(true);
 
                 // add gas for several days until bugs are removed
@@ -344,8 +415,9 @@ public class Controller {
                 for(int i=2; i<=sp.getChildren().size(); i++){
                     sp.getChildren().remove(2);
                 }
-
-
+                description.setFill(Color.GREEN);
+                description.setText("Pests successfully removed!");
+                description.setFill(Color.BLACK);
                 item.setInfested(false);
                 item.resetDaysInfested();
                 item.resetGassedDays();
@@ -365,7 +437,7 @@ public class Controller {
                 for (Item[] line : Garden.grid) {
                     for (Item item : line) {
                         if (item != null) {
-                            if (item.getClass() == Tree.class | item.getClass() == Flower.class) {
+                            if (item.getClass().getSuperclass() == Tree.class | item.getClass().getSuperclass() == Flower.class) {
                                 water(item);
                                 if(item.getInfested()){
                                     item.addDaysInfested();
@@ -447,7 +519,7 @@ public class Controller {
                 for (Item[] line:Garden.grid){
                     for (Item item:line){
                         if (item != null){
-                            if (item.getClass() == Tree.class | item.getClass() == Flower.class) {
+                            if (item.getClass().getSuperclass() == Tree.class | item.getClass().getSuperclass() == Flower.class) {
                                 int[] plantXY = {item.x, item.y};
                                 arrayOfPlants.add(plantXY);
                             }
@@ -455,9 +527,13 @@ public class Controller {
                     }
                 }
 
-                int randNumPests = randomNum.nextInt(5 - 1) + 1;
+                int randNumPests = randomNum.nextInt(5 - 2) + 2;
                 Integer[] numPestRounds = {randNumPests, arrayOfPlants.size()};
                 int minRounds = Collections.min(Arrays.asList(numPestRounds));
+
+                description.setFill(Color.RED);
+                description.setText(minRounds + " pests are attacking your garden!!!");
+                description.setFill(Color.BLACK);
 
                 Collections.shuffle(arrayOfPlants);
                 for(int i=0; i<minRounds; i++){

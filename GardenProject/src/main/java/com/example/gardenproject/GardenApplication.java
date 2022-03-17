@@ -11,7 +11,7 @@ public class GardenApplication extends Application {
     static final long MS = System.currentTimeMillis();
 
     @Override
-    public void start(Stage stage) throws IOException, InterruptedException {
+    public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(GardenApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1150, 775);
         Garden.worldCreation();

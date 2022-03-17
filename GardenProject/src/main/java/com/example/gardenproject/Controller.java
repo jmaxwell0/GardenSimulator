@@ -1,6 +1,5 @@
 package com.example.gardenproject;
 
-import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -55,6 +54,8 @@ public class Controller {
     }
 
     public void addImage(StackPane sp, FileInputStream input) {
+        // pulls image from files, sets fit to size of cell
+
         Image img = new Image(input);
         ImageView imgView = new ImageView(img);
         imgView.setFitHeight(100);
@@ -62,6 +63,9 @@ public class Controller {
 
         sp.getChildren().add(imgView);
         imgView.toBack();
+
+
+        // changes menu options to "details" and "remove" only after adding an item
 
         MenuButton mb = (MenuButton) sp.getChildren().get(1);
         for (MenuItem child : mb.getItems()) {
@@ -204,6 +208,8 @@ public class Controller {
 
         MenuButton mb = (MenuButton) sp.getChildren().get(0);
 
+        // switches menu options back to adding options (plants, watering, pest control) and removes "details" and "remove" choices
+
         for (MenuItem child : mb.getItems()) {
             String item = child.getUserData().toString();
             if (Objects.equals(item, "treeItem") | Objects.equals(item, "flowerItem")
@@ -233,6 +239,7 @@ public class Controller {
         int x = id.charAt(0) - '0';
         int y = id.charAt(1) - '0';
 
+        // sets text of details fields according to status of selected item
 
         plantType.setText(Garden.ItemType(x, y));
         healthStatus.setText(Garden.healthStatus(x, y));
@@ -310,7 +317,7 @@ public class Controller {
         }
     }
 
-    public void beginSimulation() throws FileNotFoundException, InterruptedException {
+    public void beginSimulation() {
         beginSimulation.setVisible(false);
         simulate();
 
@@ -326,11 +333,12 @@ public class Controller {
             node.setStyle("-fx-background-color:#FFFFFF");
         }
 
+        // setting health status to healthy if watered and not infested
         if (item.getDaysSinceWater() == 0 && !item.getInfested()) {
             item.setHealthStatus("Healthy");
         }
 
-
+        // if days since water is greater than water deaths days of the plant, it dies and is removed
         if (item.getDaysSinceWater() >= item.getWaterDeathDays()) {
             Logger.add(x, y, "died due to lack of water");
 
@@ -360,13 +368,17 @@ public class Controller {
             infested.setText("");
 
             description.setText(item.getItemName() + " died due to lack of water");
+
+         // if it has been unwatered for 2/3 of death days time, then turn background red
         } else if (item.getDaysSinceWater() >= item.getWaterDeathDays() * 2 / 3) {
-            Logger.dailyUpdate(x, y, "has not been watered for " + item.getWaterDeathDays() * 2 / 3 + " days and is very thirsty");
+            Logger.dailyUpdate(x, y, "has not been watered for " + item.getDaysSinceWater() + " days. It is very thirsty");
             node.setStyle("-fx-background-color:#FF0000");
             item.setHealthStatus("Very Thirsty");
             item.getHealthStatus();
+
+            // if it has been unwatered for 1/3 of death days time, then turn background orange
         } else if (item.getDaysSinceWater() >= item.getWaterDeathDays() / 3) {
-            Logger.dailyUpdate(x, y, "has not been watered for " + item.getWaterDeathDays()/ 3 + " days and is very thirsty");
+            Logger.dailyUpdate(x, y, "has not been watered for " + item.getDaysSinceWater() + " days. It is unwatered");
             node.setStyle("-fx-background-color:#FFA500");
             item.setHealthStatus("Unwatered");
         }
@@ -391,7 +403,6 @@ public class Controller {
                 sp.getChildren().subList(2, sp.getChildren().size()).clear();
             }
             sp.getChildren().remove(0);
-
 
             for (MenuItem child : mb.getItems()) {
                 String mitem = child.getUserData().toString();
@@ -420,7 +431,7 @@ public class Controller {
                 description.setFill(Color.BLACK);
                 Garden.grid[x][y].setGassed(true);
 
-                // add gas for several days until bugs are removed
+                // add gas to infested plants
 
                 FileInputStream input = null;
                 try {
@@ -442,6 +453,7 @@ public class Controller {
         }
         if (Garden.grid[x][y] != null && Garden.grid[x][y].getGassed()) {
             item.addGassedDays();
+
             // if gassed for 3 days, stop gassing
             if (item.getGassedDays() >= 3) {
                 item.setGassed(false);
@@ -467,10 +479,11 @@ public class Controller {
 
             @Override
             public void handle(ActionEvent event) {
+                Logger.simpleOutput("----------------------------------- Day " + dayNumber.getText());
                 updateDay();
                 Random randomNum = new Random();
-                // roughly every 15 days, pests invade
 
+                // every day has a 1/15 chance of infestation
                 int r = randomNum.nextInt(15);
                 if (r == 0) {
                     try {
@@ -479,6 +492,8 @@ public class Controller {
                         e.printStackTrace();
                     }
                 }
+
+                // water plants, updates status of plants, and runs pest control check to see if there are pests
                 for (Item[] line : Garden.grid) {
                     for (Item item : line) {
                         if (item != null) {
@@ -502,10 +517,7 @@ public class Controller {
         timeline.play();
     }
 
-    // find a way to have pests run in background on separate thread while able to update the ui,
-    // while loop doesnt work, Timeline can't have time in between runs change...
-
-
+    // pests() is called if 1/15th chance is hit on a particular day
     public void pests() throws FileNotFoundException, InterruptedException {
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1), new EventHandler<>() {
             int i = 0;
@@ -524,6 +536,7 @@ public class Controller {
                     }
                 }
 
+                // between 2-4 pests are spawned
                 int randNumPests = randomNum.nextInt(5 - 2) + 2;
                 Integer[] numPestRounds = {randNumPests, arrayOfPlants.size()};
                 int minRounds = Collections.min(Arrays.asList(numPestRounds));

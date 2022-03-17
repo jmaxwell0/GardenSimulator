@@ -15,7 +15,7 @@ public class Flower extends Plant {
     }
 
     @Override
-    public String getItemName(){return "Flower";};
+    public String getItemName(){return "Flower";}
 
     public void checkWatering(){
         super.checkWatering();

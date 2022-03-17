@@ -1,12 +1,8 @@
 package com.example.gardenproject;
 
 public abstract class Plant extends Item {
-    String itemName;
     String healthStatus = "Healthy";
     private int daysSinceWater = 0;
-    boolean infested;
-    Class waterClass;
-
 
     Plant(Garden garden, int x, int y) {
         super(garden, x, y);

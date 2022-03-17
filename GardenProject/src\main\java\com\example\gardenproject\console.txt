@@ -1,4 +1,0 @@
-			FORMAT: logs are written as '[<hours>:<minutes>:<seconds>] <Object> (<x>, <y>) <action>'
-[0:0:3] OrangeTree (1, 2) was planted
-
-[0:1:70] Simulation ended

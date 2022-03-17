@@ -14,8 +14,7 @@ public class Tree extends Plant{
     }
 
     public String getItemName() {
-        String itemName = "Tree";
-        return itemName;
+        return "Tree";
     }
 
     public void checkWatering(){
@@ -35,11 +34,19 @@ class OrangeTree extends Tree{
     OrangeTree(Garden garden, int x, int y) {
         super(garden, x, y);
     }
+    @Override
+    public String getItemName() {
+        return "Orange Tree";
+    }
 }
 
 class PlumTree extends Tree{
 
     PlumTree(Garden garden, int x, int y) {
         super(garden, x, y);
+    }
+    @Override
+    public String getItemName() {
+        return "Plum Tree";
     }
 }

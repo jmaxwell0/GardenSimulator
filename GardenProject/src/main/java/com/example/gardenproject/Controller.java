@@ -94,6 +94,7 @@ public class Controller {
 
         description.setText(Garden.getDescription(x, y));
         node.setStyle("-fx-background-color:#FFFFFF");
+        Logger.add(x, y, "was planted");
     }
 
     @FXML
@@ -114,6 +115,7 @@ public class Controller {
 
         description.setText(Garden.getDescription(x, y));
         node.setStyle("-fx-background-color:#FFFFFF");
+        Logger.add(x, y, "was planted");
     }
 
     @FXML
@@ -134,6 +136,7 @@ public class Controller {
 
         description.setText(Garden.getDescription(x, y));
         node.setStyle("-fx-background-color:#FFFFFF");
+        Logger.add(x, y, "was planted");
 
     }
 
@@ -155,6 +158,7 @@ public class Controller {
 
         description.setText(Garden.getDescription(x, y));
         node.setStyle("-fx-background-color:#FFFFFF");
+        Logger.add(x, y, "was planted");
 
     }
 
@@ -176,7 +180,7 @@ public class Controller {
 
         description.setText(Garden.getDescription(x, y));
         node.setStyle("-fx-background-color:#FFFFFF");
-
+        Logger.add(x, y, "was planted");
     }
 
     @FXML
@@ -188,10 +192,14 @@ public class Controller {
 
         Node node = getNodeByCoordinate(x, y);
 
+        Logger.add(x, y, "has been removed");
+
         garden.addItem(x, y, null);
 
-
         StackPane sp = (StackPane) node;
+        if (sp.getChildren().size() >= 2) {
+            sp.getChildren().subList(2, sp.getChildren().size()).clear();
+        }
         sp.getChildren().remove(0);
 
         MenuButton mb = (MenuButton) sp.getChildren().get(0);
@@ -215,9 +223,6 @@ public class Controller {
 
         description.setText("Item removed");
 
-        for (Item[] line : Garden.grid) {
-            System.out.println(Arrays.toString(line));
-        }
     }
 
 
@@ -235,6 +240,7 @@ public class Controller {
         infested.setText(Boolean.toString(Garden.infested(x, y)));
 
         description.setText(Garden.getDescription(x, y));
+        Logger.add(x, y, "details viewed by user");
 
     }
 
@@ -254,6 +260,7 @@ public class Controller {
         addImage(sp, input);
         description.setText(Garden.getDescription(x, y));
         node.setStyle("-fx-background-color:#FFFFFF");
+        Logger.add(x, y, "was added");
     }
 
     public void addIrrigation(ActionEvent event) throws FileNotFoundException {
@@ -272,6 +279,7 @@ public class Controller {
         addImage(sp, input);
         description.setText(Garden.getDescription(x, y));
         node.setStyle("-fx-background-color:#FFFFFF");
+        Logger.add(x, y, "was added");
     }
 
     public void addPestControl(ActionEvent event) throws FileNotFoundException {
@@ -291,6 +299,7 @@ public class Controller {
 
         description.setText(Garden.getDescription(x, y));
         node.setStyle("-fx-background-color:#FFFFFF");
+        Logger.add(x, y, "was added");
     }
 
 
@@ -304,6 +313,8 @@ public class Controller {
     public void beginSimulation() throws FileNotFoundException, InterruptedException {
         beginSimulation.setVisible(false);
         simulate();
+
+        Logger.simpleOutput("Simulation began\n");
     }
 
     public void water(Item item) {
@@ -315,9 +326,19 @@ public class Controller {
             node.setStyle("-fx-background-color:#FFFFFF");
         }
 
+        if (item.getDaysSinceWater() == 0 && !item.getInfested()) {
+            item.setHealthStatus("Healthy");
+        }
+
+
         if (item.getDaysSinceWater() >= item.getWaterDeathDays()) {
+            Logger.add(x, y, "died due to lack of water");
+
             garden.addItem(x, y, null);
             StackPane sp = (StackPane) node;
+            if (sp.getChildren().size() >= 2) {
+                sp.getChildren().subList(2, sp.getChildren().size()).clear();
+            }
             sp.getChildren().remove(0);
             MenuButton mb = (MenuButton) sp.getChildren().get(0);
 
@@ -331,8 +352,8 @@ public class Controller {
                     child.setVisible(false);
                 }
             }
+
             node.setStyle("-fx-background-color:#FFFFFF");
-            item.setHealthStatus("Healthy");
             plantType.setText("");
             healthStatus.setText("");
             daySinceWater.setText("");
@@ -340,29 +361,35 @@ public class Controller {
 
             description.setText(item.getItemName() + " died due to lack of water");
         } else if (item.getDaysSinceWater() >= item.getWaterDeathDays() * 2 / 3) {
+            Logger.dailyUpdate(x, y, "has not been watered for " + item.getWaterDeathDays() * 2 / 3 + " days and is very thirsty");
             node.setStyle("-fx-background-color:#FF0000");
             item.setHealthStatus("Very Thirsty");
             item.getHealthStatus();
         } else if (item.getDaysSinceWater() >= item.getWaterDeathDays() / 3) {
+            Logger.dailyUpdate(x, y, "has not been watered for " + item.getWaterDeathDays()/ 3 + " days and is very thirsty");
             node.setStyle("-fx-background-color:#FFA500");
             item.setHealthStatus("Unwatered");
         }
     }
 
     public void pestControl(Item item) {
-
         int x = item.x;
         int y = item.y;
         Node node = getNodeByCoordinate(x, y);
         StackPane sp = (StackPane) node;
-
-        // if item is infested for 10 days without pest control, it dies
-        if (item.getDaysInfested() > 10) {
+        if(Garden.grid[x][y] != null && Garden.grid[x][y].getInfested()){
+            Garden.grid[x][y].setHealthStatus("Infested for " + item.getDaysInfested() + " days");
+        }
+        // if item is infested for 7 days without pest control, it dies
+        if (item.getDaysInfested() >= 7) {
+            Logger.add(x, y, "died due to infestation");
             garden.addItem(x, y, null);
 
             MenuButton mb = (MenuButton) sp.getChildren().get(1);
 
-            sp.getChildren().remove(2);
+            if (sp.getChildren().size() >= 2) {
+                sp.getChildren().subList(2, sp.getChildren().size()).clear();
+            }
             sp.getChildren().remove(0);
 
 
@@ -385,11 +412,11 @@ public class Controller {
 
             description.setText(item.getItemName() + " died due to infestation");
 
-
         } else {
-            if (garden.checkPestControl() && item.getInfested() && !item.getGassed()) {
+            if (garden.checkPestControl() && item.getInfested() && !item.getGassed() && item.getDaysInfested() >= 2) {
                 description.setFill(Color.GREEN);
                 description.setText("Pesticide deployed!");
+                Logger.add(x, y, "had pesticide deployed on it");
                 description.setFill(Color.BLACK);
                 Garden.grid[x][y].setGassed(true);
 
@@ -418,11 +445,13 @@ public class Controller {
             // if gassed for 3 days, stop gassing
             if (item.getGassedDays() >= 3) {
                 item.setGassed(false);
-                for (int i = 2; i <= sp.getChildren().size(); i++) {
-                    sp.getChildren().remove(2);
+
+                if (sp.getChildren().size() >= 2) {
+                    sp.getChildren().subList(2, sp.getChildren().size()).clear();
                 }
                 description.setFill(Color.GREEN);
                 description.setText("Pests successfully removed!");
+                Logger.add(x, y, "had its pests successfully killed by pesticide");
                 description.setFill(Color.BLACK);
                 item.setInfested(false);
                 item.resetDaysInfested();
@@ -440,11 +469,11 @@ public class Controller {
             public void handle(ActionEvent event) {
                 updateDay();
                 Random randomNum = new Random();
-                int r = randomNum.nextInt(15)+15;
-                System.out.println(r);
-                if (r == 15) {
+                // roughly every 15 days, pests invade
+
+                int r = randomNum.nextInt(15);
+                if (r == 0) {
                     try {
-                        System.out.println("pests reached");
                         pests();
                     } catch (FileNotFoundException | InterruptedException e) {
                         e.printStackTrace();
@@ -478,12 +507,10 @@ public class Controller {
 
 
     public void pests() throws FileNotFoundException, InterruptedException {
-        System.out.println("pests inner reahced");
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1), new EventHandler<>() {
             int i = 0;
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("pests handle reach");
                 Random randomNum = new Random();
                 ArrayList<int[]> arrayOfPlants = new ArrayList<>();
                 for (Item[] line : Garden.grid) {
@@ -513,9 +540,11 @@ public class Controller {
 
                     Node node = getNodeByCoordinate(x, y);
 
-
                     Garden.grid[x][y].setInfested(true);
-                    Garden.grid[x][y].setHealthStatus("Infested for " + Garden.grid[x][y].getDaysInfested() + " days");
+
+                    if(Garden.grid[x][y].getDaysInfested()==0) {
+                        Logger.add(x, y, "has been infested!");
+                    }
 
                     StackPane sp = (StackPane) node;
 
@@ -545,52 +574,5 @@ public class Controller {
         timeline.play();
     }
 }
-
-
-
- /*  public void pests() {
-        Thread thread = new Thread() {
-            public void run() {
-                Random randomNum = new Random();
-
-                try {
-                    Thread.sleep(randomNum.nextInt(5 - 1) + 1);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                ArrayList<int[]> arrayOfPlants = new ArrayList<>();
-
-                for (Item[] line : Garden.grid) {
-                    for (Item item : line) {
-                        if (item != null) {
-                            if (item.getClass() == Tree.class | item.getClass() == Flower.class) {
-                                int[] plantXY = {item.x, item.y};
-                                arrayOfPlants.add(plantXY);
-                            }
-                        }
-                    }
-                }
-
-                int randNumPests = randomNum.nextInt(5 - 1) + 1;
-                Integer[] numPestRounds = {randNumPests, arrayOfPlants.size()};
-                int minRounds = Collections.min(Arrays.asList(numPestRounds));
-
-                Collections.shuffle(arrayOfPlants);
-                for (int i = 0; i < minRounds; i++) {
-
-                    int x = arrayOfPlants.get(i)[0];
-                    int y = arrayOfPlants.get(i)[1];
-
-                    Garden.grid[x][y].setInfested();
-                    Garden.grid[x][y].setHealthStatus("Infested for " + Garden.grid[x][y].getDaysInfested() + " days");
-                    // insert pests here
-                }
-            }
-        };
-        thread.start();
-    }*/
-
-
 
 

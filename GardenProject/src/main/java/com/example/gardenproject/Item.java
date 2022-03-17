@@ -4,12 +4,9 @@ public abstract class Item {
     Garden garden;
     int x;
     int y;
-    private String itemName;
-    private String healthStatus;
-    private int daysSinceWater;
+
     private boolean infested;
     private int daysInfested = 0;
-    private String description;
     private boolean gassed;
     private int gassedDays;
 
@@ -64,7 +61,6 @@ public abstract class Item {
     }
 
     public void setHealthStatus(String status){
-        this.healthStatus = status;
     }
 }
 

@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -13,830 +14,872 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="791.0" prefWidth="787.0" spacing="10.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gardenproject.Controller">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-   <HBox alignment="CENTER" prefHeight="39.0" prefWidth="200.0" spacing="5.0">
-      <children>
-         <Button fx:id="beginSimulation" mnemonicParsing="false" onAction="#beginSimulation" prefHeight="37.0" prefWidth="151.0" text="Begin Simulation" />
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Day:" wrappingWidth="48.927734375">
-            <font>
-               <Font size="20.0" />
-            </font>
-         </Text>
-         <Text fx:id="dayNumber" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-            <font>
-               <Font size="20.0" />
-            </font>
-         </Text>
-      </children>
-      <opaqueInsets>
-         <Insets />
-      </opaqueInsets>
-      <VBox.margin>
-         <Insets right="150.0" />
-      </VBox.margin>
-   </HBox>
-   <GridPane fx:id="grid" alignment="TOP_CENTER" gridLinesVisible="true" maxHeight="601.0" maxWidth="600.0" minHeight="600.0" minWidth="600.0" prefHeight="601.0" prefWidth="607.0">
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;">
+<ScrollPane maxWidth="1.7976931348623157E308" prefHeight="750.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gardenproject.Controller">
+   <content>
+      <GridPane prefHeight="750.0" prefWidth="1100.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="678.68017578125" minWidth="10.0" prefWidth="480.1701965332031" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1743.1586151123047" minWidth="10.0" prefWidth="819.8298034667969" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="649.4384155273438" minHeight="10.0" prefHeight="617.3018798828125" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="49.6981201171875" minHeight="10.0" prefHeight="49.6981201171875" vgrow="SOMETIMES" />
+         </rowConstraints>
          <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-              <items>
-                <MenuItem id="00" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="00" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                <MenuItem id="00" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="00" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="00" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="00" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="00" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="00" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                <MenuItem id="00" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                <MenuItem id="00" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-              </items>
+            <HBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="1805.0" prefWidth="483.0" GridPane.columnIndex="1">
+               <children>
+                  <GridPane fx:id="grid" alignment="TOP_CENTER" gridLinesVisible="true" maxHeight="601.0" maxWidth="600.0" minHeight="600.0" minWidth="600.0" prefHeight="601.0" prefWidth="607.0">
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                             <items>
+                               <MenuItem id="00" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="00" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                               <MenuItem id="00" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="00" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="00" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="00" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="00" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="00" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                               <MenuItem id="00" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                               <MenuItem id="00" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                             </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="01" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="01" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="01" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="01" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="01" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="01" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="01" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="01" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="01" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="01" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="02" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="02" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="02" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="02" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="02" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="02" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="02" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="02" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="02" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="02" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="3">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="03" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="03" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="03" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="03" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="03" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="03" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="03" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="03" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="03" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="03" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="4">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="04" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="04" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="04" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="04" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="04" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="04" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="04" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="04" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="04" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="04" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="5">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="05" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="05" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="05" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="05" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="05" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="05" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="05" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="05" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="05" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="05" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.rowIndex="1">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="10" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="10" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="10" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="10" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="10" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="10" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="10" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="10" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="10" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="10" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="11" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="11" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="11" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="11" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="11" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="11" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="11" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="11" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="11" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="11" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="12" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="12" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="12" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="12" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="12" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="12" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="12" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="12" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="12" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="12" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="13" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="13" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="13" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="13" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="13" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="13" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="13" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="13" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="13" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="13" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="14" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="14" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="14" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="14" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="14" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="14" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="14" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="14" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="14" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="14" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="15" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="15" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="15" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="15" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="15" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="15" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="15" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="15" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="15" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="15" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.rowIndex="2">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="20" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="20" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="20" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="20" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="20" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="20" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="20" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="20" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="20" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="20" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="21" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="21" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="21" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="21" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="21" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="21" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="21" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="21" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="21" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="21" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="22" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="22" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="22" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="22" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="22" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="22" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="22" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="22" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="22" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="22" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="23" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="23" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="23" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="23" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="23" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="23" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="23" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="23" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="23" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="23" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="24" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="24" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="24" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="24" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="24" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="24" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="24" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="24" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="24" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="24" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="25" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="25" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="25" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="25" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="25" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="25" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="25" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="25" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="25" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="25" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.rowIndex="3">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="30" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="30" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="30" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="30" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="30" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="30" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="30" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="30" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="30" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="30" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="31" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="31" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="31" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="31" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="31" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="31" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="31" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="31" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="31" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="31" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="32" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="32" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="32" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="32" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="32" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="32" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="32" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="32" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="32" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="32" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="33" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="33" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="33" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="33" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="33" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="33" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="33" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="33" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="33" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="33" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="34" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="34" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="34" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="34" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="34" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="34" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="34" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="34" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="34" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="34" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="35" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="35" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="35" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="35" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="35" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="35" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="35" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="35" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="35" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="35" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.rowIndex="4">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="40" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="40" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="40" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="40" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="40" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="40" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="40" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="40" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="40" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="40" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="41" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="41" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="41" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="41" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="41" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="41" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="41" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="41" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="41" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="41" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="42" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="42" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="42" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="42" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="42" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="42" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="42" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="42" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="42" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="42" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="43" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="43" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="43" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="43" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="43" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="43" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="43" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="43" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="43" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="43" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="44" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="44" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="44" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="44" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="44" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="44" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="44" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="44" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="44" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="44" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="45" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="45" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="45" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="45" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="45" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="45" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="45" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="45" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="45" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="45" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.rowIndex="5">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="50" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="50" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="50" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="50" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="50" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="50" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="50" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="50" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="50" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="50" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="51" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="51" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="51" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="51" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="51" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="51" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="51" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="51" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="51" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="51" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="52" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="52" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="52" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="52" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="52" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="52" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="52" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="52" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="52" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="52" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="53" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="53" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="53" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="53" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="53" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="53" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="53" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="53" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="53" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="53" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="54" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="54" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="54" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="54" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="54" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="54" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="54" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="54" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="54" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="54" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+                     <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                        <children>
+                           <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
+                              <items>
+                                 <MenuItem id="55" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="55" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
+                                 <MenuItem id="55" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
+                                 <MenuItem id="55" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
+                                 <MenuItem id="55" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
+                                 <MenuItem id="55" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
+                                 <MenuItem id="55" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
+                                 <MenuItem id="55" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
+                                 <MenuItem id="55" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
+                                 <MenuItem id="55" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
+                              </items>
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </MenuButton>
+                        </children>
+                     </StackPane>
+               
+                               <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </children>
+               <padding>
+                  <Insets top="50.0" />
+               </padding>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </HBox>
+            <VBox prefHeight="650.0" prefWidth="570.0">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="beginSimulation" mnemonicParsing="false" onAction="#beginSimulation" prefHeight="31.0" prefWidth="149.0" text="Begin Simulation">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Day:" wrappingWidth="47.9736328125">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Text fx:id="dayNumber" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="58.5654296875">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets top="50.0" />
+                     </padding>
+                  </HBox>
+                  <GridPane prefHeight="560.0" prefWidth="138.0" vgap="20.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="108.48590087890625" minWidth="20.0" prefWidth="70.84384155273438" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="57.124725341796875" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="141.54440307617188" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="156.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="116.7808837890625" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Item Type:" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Health Status:" GridPane.rowIndex="1" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Days since water:" wrappingWidth="103.72395324707031" GridPane.rowIndex="2" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Infested:" GridPane.rowIndex="3" />
+                        <Text fx:id="plantType" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
+                        <Text fx:id="healthStatus" strokeType="OUTSIDE" strokeWidth="0.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Text fx:id="daySinceWater" strokeType="OUTSIDE" strokeWidth="0.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Text fx:id="infested" strokeType="OUTSIDE" strokeWidth="0.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </children>
+                     <padding>
+                        <Insets bottom="250.0" left="50.0" top="250.0" />
+                     </padding>
+                  </GridPane>
+               </children>
+            </VBox>
+            <Text fx:id="description" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="1041.7319946289062" GridPane.rowIndex="1">
                <font>
-                  <Font size="18.0" />
+                  <Font size="15.0" />
                </font>
-            </MenuButton>
+               <GridPane.margin>
+                  <Insets bottom="20.0" left="20.0" top="20.0" />
+               </GridPane.margin>
+            </Text>
          </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="01" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="01" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="01" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="01" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="01" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="01" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="01" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="01" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="01" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="01" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="02" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="02" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="02" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="02" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="02" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="02" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="02" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="02" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="02" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="02" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="3">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="03" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="03" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="03" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="03" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="03" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="03" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="03" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="03" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="03" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="03" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="4">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="04" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="04" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="04" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="04" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="04" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="04" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="04" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="04" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="04" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="04" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="5">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="05" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="05" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="05" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="05" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="05" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="05" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="05" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="05" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="05" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="05" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.rowIndex="1">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="10" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="10" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="10" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="10" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="10" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="10" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="10" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="10" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="10" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="10" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="11" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="11" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="11" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="11" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="11" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="11" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="11" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="11" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="11" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="11" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2" GridPane.rowIndex="1">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="12" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="12" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="12" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="12" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="12" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="12" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="12" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="12" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="12" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="12" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="3" GridPane.rowIndex="1">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="13" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="13" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="13" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="13" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="13" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="13" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="13" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="13" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="13" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="13" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="4" GridPane.rowIndex="1">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="14" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="14" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="14" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="14" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="14" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="14" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="14" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="14" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="14" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="14" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="5" GridPane.rowIndex="1">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="15" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="15" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="15" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="15" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="15" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="15" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="15" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="15" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="15" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="15" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.rowIndex="2">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="20" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="20" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="20" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="20" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="20" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="20" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="20" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="20" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="20" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="20" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="2">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="21" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="21" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="21" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="21" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="21" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="21" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="21" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="21" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="21" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="21" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2" GridPane.rowIndex="2">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="22" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="22" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="22" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="22" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="22" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="22" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="22" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="22" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="22" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="22" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="3" GridPane.rowIndex="2">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="23" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="23" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="23" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="23" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="23" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="23" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="23" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="23" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="23" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="23" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="4" GridPane.rowIndex="2">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="24" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="24" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="24" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="24" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="24" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="24" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="24" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="24" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="24" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="24" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="5" GridPane.rowIndex="2">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="25" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="25" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="25" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="25" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="25" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="25" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="25" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="25" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="25" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="25" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.rowIndex="3">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="30" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="30" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="30" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="30" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="30" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="30" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="30" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="30" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="30" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="30" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="3">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="31" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="31" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="31" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="31" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="31" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="31" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="31" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="31" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="31" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="31" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2" GridPane.rowIndex="3">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="32" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="32" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="32" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="32" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="32" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="32" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="32" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="32" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="32" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="32" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="3" GridPane.rowIndex="3">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="33" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="33" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="33" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="33" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="33" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="33" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="33" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="33" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="33" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="33" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="4" GridPane.rowIndex="3">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="34" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="34" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="34" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="34" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="34" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="34" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="34" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="34" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="34" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="34" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="5" GridPane.rowIndex="3">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="35" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="35" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="35" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="35" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="35" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="35" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="35" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="35" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="35" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="35" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.rowIndex="4">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="40" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="40" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="40" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="40" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="40" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="40" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="40" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="40" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="40" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="40" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="4">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="41" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="41" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="41" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="41" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="41" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="41" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="41" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="41" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="41" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="41" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2" GridPane.rowIndex="4">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="42" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="42" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="42" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="42" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="42" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="42" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="42" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="42" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="42" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="42" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="3" GridPane.rowIndex="4">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="43" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="43" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="43" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="43" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="43" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="43" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="43" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="43" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="43" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="43" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="4" GridPane.rowIndex="4">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="44" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="44" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="44" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="44" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="44" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="44" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="44" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="44" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="44" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="44" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="5" GridPane.rowIndex="4">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="45" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="45" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="45" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="45" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="45" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="45" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="45" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="45" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="45" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="45" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.rowIndex="5">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="50" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="50" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="50" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="50" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="50" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="50" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="50" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="50" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="50" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="50" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="5">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="51" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="51" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="51" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="51" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="51" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="51" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="51" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="51" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="51" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="51" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2" GridPane.rowIndex="5">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="52" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="52" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="52" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="52" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="52" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="52" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="52" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="52" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="52" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="52" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="3" GridPane.rowIndex="5">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="53" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="53" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="53" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="53" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="53" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="53" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="53" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="53" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="53" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="53" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="4" GridPane.rowIndex="5">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="54" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="54" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="54" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="54" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="54" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="54" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="54" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="54" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="54" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="54" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-      <StackPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="5" GridPane.rowIndex="5">
-         <children>
-            <MenuButton alignment="CENTER" mnemonicParsing="false" opacity="0.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0;" textFill="#c90e0e" wrapText="true">
-               <items>
-                  <MenuItem id="55" mnemonicParsing="false" onAction="#addOrangeTree" text="Add Orange Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="55" mnemonicParsing="false" onAction="#addPlumTree" text="Add Plum Tree" userData="treeItem" visible="true" />
-                  <MenuItem id="55" mnemonicParsing="false" onAction="#addHydrangea" text="Add Hydrangeas" userData="flowerItem" visible="true" />
-                  <MenuItem id="55" mnemonicParsing="false" onAction="#addDaisy" text="Add Daisies" userData="flowerItem" visible="true" />
-                  <MenuItem id="55" mnemonicParsing="false" onAction="#addRose" text="Add Roses" userData="flowerItem" visible="true" />
-                  <MenuItem id="55" mnemonicParsing="false" onAction="#addSprinkler" text="Place Sprinkler" userData="sprinklerItem" visible="true" />
-                  <MenuItem id="55" mnemonicParsing="false" onAction="#addIrrigation" text="Place Irrigation System" userData="irrigationItem" visible="true" />
-                  <MenuItem id="55" mnemonicParsing="false" onAction="#addPestControl" text="Place Pest Control System" userData="pestControlItem" visible="true" />
-                  <MenuItem id="55" mnemonicParsing="false" onAction="#details" text="View Details" userData="details" visible="false" />
-                  <MenuItem id="55" mnemonicParsing="false" onAction="#remove" text="Remove" userData="remove" visible="false" />
-               </items>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MenuButton>
-         </children>
-      </StackPane>
-
-       <columnConstraints>
-       <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
-       <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
-         <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
-         <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
-         <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
-         <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
-     </columnConstraints>
-     <rowConstraints>
-         <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-         <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-         <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-       <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-       <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-       <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-     </rowConstraints>
-   </GridPane>
-   <Text fx:id="description" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="700.0">
-      <font>
-         <Font size="15.0" />
-      </font></Text>
-   <GridPane prefHeight="57.0" prefWidth="203.0" vgap="10.0">
-     <columnConstraints>
-       <ColumnConstraints hgrow="SOMETIMES" maxWidth="136.272705078125" minWidth="10.0" prefWidth="113.73126220703125" />
-       <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.28787231445312" minWidth="10.0" prefWidth="89.76873779296875" />
-     </columnConstraints>
-     <rowConstraints>
-       <RowConstraints maxHeight="20.474853515625" minHeight="10.0" prefHeight="15.2374267578125" vgrow="SOMETIMES" />
-       <RowConstraints maxHeight="23.0936279296875" minHeight="0.0" prefHeight="14.7625732421875" vgrow="SOMETIMES" />
-       <RowConstraints maxHeight="38.04681396484375" minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
-         <RowConstraints maxHeight="32.04681396484375" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-     </rowConstraints>
-      <children>
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Item Type:" />
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Health Status:" GridPane.rowIndex="1" />
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Days since water:" wrappingWidth="103.72395324707031" GridPane.rowIndex="2" />
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Infested:" GridPane.rowIndex="3" />
-         <Text fx:id="plantType" strokeType="OUTSIDE" strokeWidth="0.0" text="" GridPane.columnIndex="1" />
-         <Text fx:id="healthStatus" strokeType="OUTSIDE" strokeWidth="0.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-         <Text fx:id="daySinceWater" strokeType="OUTSIDE" strokeWidth="0.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-         <Text fx:id="infested" strokeType="OUTSIDE" strokeWidth="0.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      </children>
-   </GridPane>
-</VBox>
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+      </GridPane>
+   </content>
+</ScrollPane>

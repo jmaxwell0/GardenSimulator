@@ -1,0 +1,39 @@
+Automated Garden System
+------------------------------------------
+James Maxwell, Lakshmi Nagulapati, Claire Choi
+OMIS 137
+------------------------------------------
+
+User Manual:
+
+1. Begin by clicking anywhere on the 6x6 grid and placing the plants you desire. 
+
+	- Any tree-type plants must be within a one-tile range of an irrigation system to be watered everyday.
+
+	- Any flower-type plants must be within a one-tile range of a sprinkler to be watered everyday.
+
+Therefore, it is advantageous to place an irrigation system surrounded by trees and a sprinkler surrounded by flowers in order to maximize the use of garden space. 
+
+If a tree is not watered for 21 days, it will die. 
+If a flower is not watered for 7 days, it will die.
+
+The background color will turn orange if it a plant is not watered for 1/3 of its lifespan without water (e.g 7 days for trees), and red if it is still not watered after 2/3 of its non-water lifespan (e.g 14 days for trees).
+
+The pest control system can be placed anywhere on the grid and will ensure that all plants are protected within the garden as long one is placed. 
+
+
+
+2. Press "Begin Simulation" once you have placed your desired plants, watering systems, and pest control. 
+
+Any plants that are within range of a watering system will be watered daily. If they are not within range, they will die depending on their plant type (21 days for trees, seven days for flowers).
+
+Pests (between 2-4) will attack randomly (each day has a 1/15 chance of attack). The pests are represented by flies that land on the respective plants' tile. If a pest control system is present, pesticide wil be deployed. Pests will die after three days of pesticide exposure.
+
+If there is not a pest control system present and pests attack, any plants that are infested for seven days will die. 
+
+You are able to add plants while the simulation is running, but the ideal scenario would be to correctly place plants, watering systems, and a pest control system so that the simulation will run on its own and you do not need to continuing adding new plants.
+
+You are able to click on any plants and click "View Details" to view their plant type, current health status, days since water, and if it is infested.
+
+You are also able to remove any plants you do not desire by clicking on a plant and selecting "Remove". 
+

@@ -37,8 +37,10 @@ public abstract class Plant extends Item {
     public void checkWatering(){
         if (garden.checkSurroundings(this, Irrigation.class) && (this.getWaterClass() == Irrigation.class)){
             this.resetDaysSinceWater();
+            Logger.add(x, y, "was watered by an irrigation system");
         } else if (garden.checkSurroundings(this, Sprinkler.class) && (this.getWaterClass() == Sprinkler.class)){
             this.resetDaysSinceWater();
+            Logger.add(x, y, "was watered by a sprinkler");
         }else{this.addDaysSinceWater();}
     }
 
